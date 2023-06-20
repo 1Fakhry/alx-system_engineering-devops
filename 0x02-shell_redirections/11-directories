@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Count the number of directories and subdirectories
+count=0
+
+# Iterate over each entry in the current directory
+for entry in $(find . -mindepth 1 -type d)
+do
+    # Exclude the current and parent directories
+    if [[ "$entry" != "." && "$entry" != ".." ]]
+    then
+        ((count++))
+    fi
+done
+
+# Print the count of directories and subdirectories
+echo "Number of directories and subdirectories: $count"
